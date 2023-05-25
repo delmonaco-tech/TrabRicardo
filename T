@@ -1,0 +1,92 @@
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class T {
+
+    @SuppressWarnings("empty-statement")
+    public static void main(String[] args) {
+        Object valor;
+        int resp;
+        Scanner scanner = new Scanner(System.in);
+        Scanner scanner2 = new Scanner(System.in);
+
+        // JFrame frame = new JFrame("Mensagem");
+
+        // System.out.println("insira tamanho do vetor");
+        // int tamanho = scanner.nextInt();
+        // Vetor v1 = new Vetor(tamanho);
+        Vetor v1 = new Vetor(10);
+
+        do {
+            // JOptionPane.showMessageDialog(frame, "Bem vindo xxx, escolha umas das opcões que deseja realizar");
+            System.out.println('\n');
+            System.out.println("1-Realizar cadastro de usuário"); 
+            System.out.println("2-Realizar cadastro de quadra(s)");
+            System.out.println("3-Buscar Por quadra cadastrada");
+            System.out.println("4-Printar quadras e cadastro");
+            System.out.println("5-Remover cadastro de quadra");
+            System.out.println("0-finalizar");
+            resp = scanner.nextInt();
+            // System.exit(0);
+            if (resp == 1) {
+                System.out.println("insira o nome ou cpf");
+                // int
+                if (scanner2.hasNextInt()) {
+                    valor = scanner2.nextInt();
+                    v1.insere(valor);
+                } else if (scanner2.hasNextFloat()) { // float
+                    valor = scanner2.nextFloat();
+                    v1.insereFloat(valor);
+                } else { // String
+                    valor = scanner2.nextLine();
+                    v1.insereString(valor);
+                }
+            }
+
+            if (resp == 2) {
+                System.out.println("Insira nome ");
+                // Int
+                if (scanner2.hasNextInt()) {
+                    valor = scanner2.nextInt();
+                    v1.insere(valor);
+                } else { // String
+                    valor = scanner2.nextLine();
+                    v1.insereString(valor);
+                }
+            }
+
+            if (resp == 3) {
+                System.out.println("Qual quadra você deseja procurar (Nome ou Id)?");
+                int posicao = scanner.nextInt();
+                int elemento;
+
+                if (posicao > v1.gettamanho()) {
+                    System.out.println("A posição não é válida");
+                    continue;
+                } else {
+                    elemento = v1.buscaElemento(posicao);
+                }
+
+                System.out.println("Elemento: " + elemento);
+            }
+
+            if (resp == 4) {
+                v1.printVetor();
+            }
+
+            if (resp == 5) {
+                System.out.println("Insira nome ou ID da quadra que deseja remover");
+                // int
+                if (scanner2.hasNextInt()) {
+                    valor = scanner2.nextInt();
+                   // v1.remove(valor);
+                } else { // String
+                    valor = scanner2.nextLine();
+                    // v1.remove2(valor);
+                }
+            }
+        } while (resp != 0);
+    }
+}
