@@ -1,0 +1,69 @@
+public class Vetor <T> {
+
+    private int tamanho;
+    private int[] vetor;
+    int elemento;
+
+    public Vetor(int tamanho) {
+        //construtor da classe. Deverá receber o tamanho do vetor como parâmetro
+        this.tamanho = tamanho;
+        this.vetor = new int[this.tamanho];
+    }
+    
+    public int gettamanho() {
+        return this.tamanho;
+    }
+
+   //METODOS DE INSERÇÃO
+
+   //INSERE INTEIRO
+    public void insere(Object valor) {
+        //Esse método deverá inserir elementos no vetor desde que haja espaço para o mesmo.
+       for (int i = 0; i < vetor.length; i++) {
+             vetor[i] = vetor[i]% 7;
+            //if (vetor[i] == 0) {
+             this.vetor[i] = (int) valor;
+               //break; 
+            }
+        }
+
+
+//INSERE FLOAT
+public void insereFloat(Object valor)
+{
+    
+    System.out.println("Funcionou Float");
+}
+
+
+//INSERE STRING
+public void insereString(Object valor)
+{
+    System.out.println("Funcinou String");
+}
+
+
+
+    //public void remove(Object posicao) {
+//Esse método deverá remover o elemento na posição especificada e rearranjar os elementos, caso necessário
+        //  vetor[posicao] = 0;
+        //for (int i = posicao; i < vetor.length-1; i++) {
+          //  if (vetor[i+1] != 0) {
+            //    vetor[i] = vetor[i+1];
+              //  vetor[i+1] = 0;
+            //}
+        //}
+    //}
+
+    public int buscaElemento(int posicao) {
+//Esse método deverá retornar o valor do elemento na posição especificada.
+        return vetor[posicao];
+    }
+
+    public void printVetor() {
+        for (int i = 0; i < tamanho; i++) {
+            System.out.print(vetor[i] + " ");
+         
+        }
+    }
+}
